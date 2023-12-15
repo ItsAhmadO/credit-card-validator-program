@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+bool solve(string number);
+
+int main(){
+    string number;
+    cout << "Enter the credit card number: ";
+    cin >> number;
+    if(solve(number)){
+        cout << "Card number valid";
+    }
+    else{
+        cout << "Card number is invalid";
+    }
+    return 0;
+}
+
+bool solve(string number) {
+    int even_s = 0, odd_s = 0, total_sum = 0;
+
+    for (int i = number.size() - 2; i >= 0; i -= 2){
+        int temp_num = (number[i] - '0') * 2;
+        
+        if(temp_num >= 10){
+            even_s += temp_num % 10 + temp_num / 10;
+        } 
+        else{
+            even_s += temp_num;
+        }
+    }
+
+    for (int k = number.size() - 1; k >= 0; k -= 2){
+        odd_s += number[k] - '0';
+    }
+
+    total_sum = even_s + odd_s;
+
+    return (total_sum % 10 == 0);
+}
