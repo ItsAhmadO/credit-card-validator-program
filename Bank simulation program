@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+using namespace std;
+/*BANKING PROGRAM:
+this will depost money
+withdraw money
+show a balance
+*/ 
+
+double balance, withdrawal, deposit;
+void deposit_money(double deposit);
+void withdraw_money(double withdrawal);
+void display_balance();
+
+int main() {
+    cout << "What is your current balance? \n";
+    cin >> balance;
+    cout << "How much would you like to withdraw? \n";
+    cin >> withdrawal;
+    withdraw_money(withdrawal);
+    cout << "How much would you like to deposit? \n";
+    cin >> deposit;
+    deposit_money(deposit);
+    display_balance();
+    return 0;
+}
+
+void deposit_money(double deposit){
+    balance += deposit;
+    cout << "You have deposited " << deposit << " pounds \n";
+}
+void withdraw_money(double withdrawal){
+    balance -= withdrawal;
+    cout << "You have withdrawn " << withdrawal << " pounds \n";
+}
+void display_balance(){
+    cout << "Your current balance is " << balance << " pounds\n";
+}
